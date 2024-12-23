@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const NavBar = () => {
-    const user  = false;
+  const {user }= useContext(AuthContext);
   const menuItems = (
     <>
       <li>
@@ -63,7 +64,12 @@ const NavBar = () => {
         <div className="navbar-end">
           {
             user ?
+            <>
             <h1>User available</h1>
+            
+            <button>Logout</button>
+            </>
+            
             :
             <>
               <NavLink className='btn mr-4' to={"/login"}>Login</NavLink>

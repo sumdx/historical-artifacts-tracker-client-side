@@ -1,27 +1,52 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
-import loginImg from "./../assets/Images/login.svg"
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import loginImg from "./../assets/Images/login.svg";
 import { AuthContext } from "../providers/AuthProvider";
-
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { signInUser, user ,signInUserWithGoogle} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  if (user) {
+    return navigate("/");
+  }
 
-    const {signInUser} = useContext(AuthContext);
-    const loginHandle = e =>{
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email, password);
-        signInUser(email,password)
-        .then()
-        
-    }
-    
-    const googleSignInHandle = () =>{
-         
-    }
+  const loginHandle = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signInUser(email, password)
+      .then((result) => {
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Error!",
+          text: "Something Went Wrong, Try Again. Please Check Email and Password",
+          icon: "error",
+        });
+      });
+  };
+
+  const googleSignInHandle = () => {
+
+    signInUserWithGoogle()
+    .then((result) =>{
+      navigate(from, { replace: true });
+    })
+    .catch((err) => {
+      Swal.fire({
+        title: "Error!",
+        text: "Something Went Wrong, Try Again. Please Check Email and Password",
+        icon: "error",
+      });
+    });
+  };
 
   return (
     <div className="container mx-auto">
@@ -32,10 +57,7 @@ const Login = () => {
         </div>
         <div className="w-1/2 my-10">
           <div className="text-blue-600 font-bold text-4xl text-center mb-10">
-            <h1>
-                Welcome Back
-            </h1>
-            
+            <h1>Welcome Back</h1>
           </div>
           <div className="">
             <form onSubmit={loginHandle} action="">
@@ -49,7 +71,12 @@ const Login = () => {
                   <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
                   <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                 </svg>
-                <input name="email" type="text" className="grow" placeholder="Email" />
+                <input
+                  name="email"
+                  type="text"
+                  className="grow"
+                  placeholder="Email"
+                />
               </label>
               <label className="input input-bordered flex items-center gap-2">
                 <svg
@@ -80,14 +107,19 @@ const Login = () => {
             </form>
             <h1 className="text-center my-2 font-semibold text-sm">or</h1>
             <button
-                type="submit"
-                className="btn w-full text-center mx-auto"
-                onClick={googleSignInHandle}
-              >
-                <FcGoogle className="text-xl" />
-                Sign In with Google
-              </button>
-              <h1 className="text-center mt-4 font-light">Don't have an account? <Link className="text-blue-600 font-bold" to={"/register"}>Sign Up</Link></h1>
+              type="submit"
+              className="btn w-full text-center mx-auto"
+              onClick={googleSignInHandle}
+            >
+              <FcGoogle className="text-xl" />
+              Sign In with Google
+            </button>
+            <h1 className="text-center mt-4 font-light">
+              Don't have an account?{" "}
+              <Link className="text-blue-600 font-bold" to={"/register"}>
+                Sign Up
+              </Link>
+            </h1>
           </div>
         </div>
       </div>
