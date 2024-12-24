@@ -12,6 +12,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AuthProvider from './providers/AuthProvider';
+import AddArtifacts from './pages/ AddArtifacts';
+import PrivateRoute from './providers/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path : "/register",
         element : <Register></Register>,
+      },
+      {
+        path: "/add-artifact",
+        element: <PrivateRoute><AddArtifacts></AddArtifacts></PrivateRoute>
       }
     ]
   },

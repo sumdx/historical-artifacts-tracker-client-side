@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 const NavBar = () => {
   const {user, signOutUser }= useContext(AuthContext);
 
-
+  console.log(user);
   const logOutHandle =() =>{
     signOutUser();
   }
@@ -70,11 +70,36 @@ const NavBar = () => {
         <div className="navbar-end">
           {
             user ?
-            <>
-            <h1>User available</h1>
-            
-            <button onClick={logOutHandle}>Logout</button>
-            </>
+            <div className="hover:tooltip hover:tooltip-right dropdown dropdown-end" data-tip={user?.displayName}>
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={user?.photoURL}
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <p>Welcome, {user?.displayName?.split(" ")[0]}</p>
+                </li>
+                <li>
+                  <a className="justify-between">
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a onClick={logOutHandle}>Logout</a>
+                </li>
+              </ul>
+            </div>
             
             :
             <>
