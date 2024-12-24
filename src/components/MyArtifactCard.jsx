@@ -1,9 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyArtifactCard = ({ data }) => {
   
-  
+  const updateHandle = () =>{
+    useNavigate()
+  }
+  const deleteHandle = () =>{
+
+  }
   return (
     <div>
       <div className="card bg-base-100 shadow-xl h-full">
@@ -27,7 +32,7 @@ const MyArtifactCard = ({ data }) => {
             <div>
                 
             </div>
-            <Link className="btn" onClick={updateHandle}>Update</Link>
+            <Link className="btn" to={`/update/${data._id}`}>Update</Link>
             <Link className="btn bg-red-500 text-white" onClick={deleteHandle}>Delete</Link>
             
           </div>
