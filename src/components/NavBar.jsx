@@ -89,7 +89,7 @@ const NavBar = () => {
                   <p>Welcome, {user?.displayName?.split(" ")[0]}</p>
                 </li>
                 <li>
-                  <NavLink to={"/my-artifacts"}>My Artifacts</NavLink>
+                  <NavLink to={"/my-artifacts"}>My Artifact</NavLink>
                 </li>
                 <li>
                   <NavLink to={"/liked-artifacts"}>Liked Artifacts</NavLink>

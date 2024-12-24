@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MyArtifactCard = ({ data }) => {
-  console.log(data);
+  
+  
   return (
     <div>
       <div className="card bg-base-100 shadow-xl h-full">
@@ -26,8 +27,8 @@ const MyArtifactCard = ({ data }) => {
             <div>
                 
             </div>
-            <Link className="btn">Update</Link>
-            <Link className="btn bg-red-500 text-white">Delete</Link>
+            <Link className="btn" onClick={updateHandle}>Update</Link>
+            <Link className="btn bg-red-500 text-white" onClick={deleteHandle}>Delete</Link>
             
           </div>
         </div>
