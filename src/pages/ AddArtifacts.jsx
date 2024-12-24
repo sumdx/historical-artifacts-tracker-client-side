@@ -6,6 +6,13 @@ const AddArtifacts = () => {
 
     const {user} = useContext(AuthContext);
 
+    const addArtifactHandle = (e) =>{
+        e.preventDefault();
+        
+        console.log(e.target.type.value)
+    }
+
+
   return (
     <div className="w-full relative bg-slate-50">
       <div className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white absolute mx-auto container">
@@ -13,7 +20,7 @@ const AddArtifacts = () => {
           Add Your Collection
         </h1>
         <div className="mx-auto mt-10 flex justify-center">
-          <form className=" " action="">
+          <form onSubmit={addArtifactHandle} className=" " action="">
             <div className="flex gap-6">
               <label className="form-control w-full max-w-xs">
                 <input
@@ -33,7 +40,7 @@ const AddArtifacts = () => {
               </label>
             </div>
             <div className="w-full mt-6">
-              <select className="select select-bordered w-full ">
+              <select name="type" className="select select-bordered w-full ">
                 <option disabled selected>
                   Type of Artifact
                 </option>
@@ -105,7 +112,7 @@ const AddArtifacts = () => {
               </label>
             </div>
             <div className="text-center mt-6 mb-6">
-                <button className="btn">
+                <button type='submit' className="btn">
                     Add Artifact
                 </button>
             </div>
