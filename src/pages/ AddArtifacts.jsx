@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import AddArt from "./../assets/Images/addArt.jpg";
 import { AuthContext } from "../providers/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddArtifacts = () => {
   const { user } = useContext(AuthContext);
@@ -18,6 +20,21 @@ const AddArtifacts = () => {
 
     const finalData = {...initialData, userInfo};
     console.log(finalData)
+
+    axios.post('http://localhost:3000/artifact', finalData)
+    .then(res =>{
+        Swal.fire({
+            title: 'Success!',
+            text: 'Artifact Information Added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          })
+         // e.target.reset();
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+
   };
 
   return (
