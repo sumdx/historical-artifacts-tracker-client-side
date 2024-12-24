@@ -3,15 +3,22 @@ import AddArt from "./../assets/Images/addArt.jpg";
 import { AuthContext } from "../providers/AuthProvider";
 
 const AddArtifacts = () => {
+  const { user } = useContext(AuthContext);
 
-    const {user} = useContext(AuthContext);
+  const addArtifactHandle = (e) => {
+    e.preventDefault();
+    const initialData = Object.fromEntries(new FormData(e.target).entries());
 
-    const addArtifactHandle = (e) =>{
-        e.preventDefault();
-        
-        console.log(e.target.type.value)
-    }
+    const userInfo = 
+        {
+            userEmail : user.email,
+            userName : user.displayName,
+            likeCount : 0
+        }
 
+    const finalData = {...initialData, userInfo};
+    console.log(finalData)
+  };
 
   return (
     <div className="w-full relative bg-slate-50">
@@ -40,8 +47,13 @@ const AddArtifacts = () => {
               </label>
             </div>
             <div className="w-full mt-6">
-              <select name="type" className="select select-bordered w-full ">
-                <option disabled selected>
+              <select
+              required
+              defaultValue=""
+                name="type"
+                className="select select-bordered w-full "
+              >
+                <option value="" disabled>
                   Type of Artifact
                 </option>
                 <option>Tools</option>
@@ -51,13 +63,17 @@ const AddArtifacts = () => {
               </select>
             </div>
             <div>
-            <textarea className="textarea textarea-bordered w-full mt-6" placeholder="Historical Context"></textarea>
+              <textarea
+              name="historicalContext"
+                className="textarea textarea-bordered w-full mt-6"
+                placeholder="Historical Context"
+              ></textarea>
             </div>
             {/* Created and dicover date */}
             <div className="flex gap-6 mt-6 ">
               <label className="form-control w-full max-w-xs">
                 <input
-                    name="createdAt"
+                  name="createdAt"
                   type="text"
                   placeholder="Created At  (e.g. 100 BC)"
                   className="input input-bordered w-full max-w-xs"
@@ -66,6 +82,7 @@ const AddArtifacts = () => {
               <label className=" form-control w-full max-w-xs">
                 <input
                   type="text"
+                  name="discoveredAt"
                   placeholder="Discovered At (e.g. 120 BC)"
                   className="input input-bordered w-full max-w-xs"
                 />
@@ -75,7 +92,7 @@ const AddArtifacts = () => {
             <div className="flex gap-6 mt-6 ">
               <label className="form-control w-full max-w-xs">
                 <input
-                    name="createdAt"
+                  name="discoveredBy"
                   type="text"
                   placeholder="Discovered By"
                   className="input input-bordered w-full max-w-xs"
@@ -83,6 +100,7 @@ const AddArtifacts = () => {
               </label>
               <label className=" form-control w-full max-w-xs">
                 <input
+                name="presentLocation"
                   type="text"
                   placeholder="Present Location"
                   className="input input-bordered w-full max-w-xs"
@@ -91,10 +109,10 @@ const AddArtifacts = () => {
             </div>
             {/* Name */}
             <div className="mt-6">
-            <label className=" form-control w-full">
+              <label className=" form-control w-full">
                 <input
-                disabled
-                  type="email"
+                  disabled
+                  type="text"
                   value={user.displayName}
                   className="input input-bordered w-full "
                 />
@@ -102,9 +120,9 @@ const AddArtifacts = () => {
             </div>
             {/* Email */}
             <div className="mt-6">
-            <label className=" form-control w-full">
+              <label className=" form-control w-full">
                 <input
-                disabled
+                  disabled
                   type="email"
                   value={user.email}
                   className="input input-bordered w-full "
@@ -112,9 +130,9 @@ const AddArtifacts = () => {
               </label>
             </div>
             <div className="text-center mt-6 mb-6">
-                <button type='submit' className="btn">
-                    Add Artifact
-                </button>
+              <button type="submit" className="btn">
+                Add Artifact
+              </button>
             </div>
           </form>
         </div>
