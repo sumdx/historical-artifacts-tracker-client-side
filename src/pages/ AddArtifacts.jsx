@@ -10,15 +10,14 @@ const AddArtifacts = () => {
   const addArtifactHandle = (e) => {
     e.preventDefault();
     const initialData = Object.fromEntries(new FormData(e.target).entries());
-
+    const likedBy = [];
     const userInfo = 
         {
             userEmail : user.email,
             userName : user.displayName,
-            likeCount : 0
+            likedBy
         }
-
-    const finalData = {...initialData, userInfo};
+    const finalData = {...initialData, userInfo, likedBy};
     console.log(finalData)
 
     axios.post('http://localhost:3000/artifact', finalData)
@@ -32,7 +31,12 @@ const AddArtifacts = () => {
          // e.target.reset();
     })
     .catch(err =>{
-        console.log(err)
+        Swal.fire({
+            title: 'Error!',
+            text: 'Something Wrong',
+            icon: 'error',
+            confirmButtonText: 'Okay'
+          })
     })
 
   };
@@ -49,7 +53,7 @@ const AddArtifacts = () => {
               <label className="form-control w-full max-w-xs">
                 <input
                   type="text"
-                  name="artifact-name"
+                  name="artifactName"
                   placeholder="Artifact Name"
                   className="input input-bordered w-full max-w-xs"
                 />
@@ -57,7 +61,7 @@ const AddArtifacts = () => {
               <label className=" form-control w-full max-w-xs">
                 <input
                   type="text"
-                  name="artifact-imgUrl"
+                  name="artifactImgUrl"
                   placeholder="Artifact Photo URL"
                   className="input input-bordered w-full max-w-xs"
                 />
@@ -66,7 +70,7 @@ const AddArtifacts = () => {
             <div className="w-full mt-6">
               <select
               required
-              defaultValue=""
+              defaultValue="Type of Artifact"
                 name="type"
                 className="select select-bordered w-full "
               >
