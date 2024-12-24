@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const NavBar = () => {
-  const {user, signOutUser }= useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
 
   console.log(user);
-  const logOutHandle =() =>{
+  const logOutHandle = () => {
     signOutUser();
-  }
+  };
 
   const menuItems = (
     <>
@@ -16,23 +16,18 @@ const NavBar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-       <NavLink to={"/about"}>About</NavLink>
+        <NavLink to={"/about"}>About</NavLink>
       </li>
-      {
-        user &&
+      {user && (
         <>
-        <li>
+          <li>
             <NavLink to={"/add-artifact"}>Add Artifact</NavLink>
-        </li>
-        <li>
+          </li>
+          <li>
             <NavLink to={"/all-artifacts"}>All Artifacts</NavLink>
-        </li>
-        <li>
-            <NavLink to={"/my-artifacts"}>My Artifact</NavLink>
-        </li>
+          </li>
         </>
-      }
-      
+      )}
     </>
   );
   return (
@@ -66,14 +61,14 @@ const NavBar = () => {
           <a className="btn btn-ghost text-xl">Historical Artifacts Tracker</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-          {menuItems}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{menuItems}</ul>
         </div>
         <div className="navbar-end">
-          {
-            user ?
-            <div className="hover:tooltip hover:tooltip-right dropdown dropdown-end" data-tip={user?.displayName}>
+          {user ? (
+            <div
+              className="hover:tooltip hover:tooltip-right dropdown dropdown-end"
+              data-tip={user?.displayName}
+            >
               <div
                 tabIndex={0}
                 role="button"
@@ -94,22 +89,26 @@ const NavBar = () => {
                   <p>Welcome, {user?.displayName?.split(" ")[0]}</p>
                 </li>
                 <li>
-                  <a className="justify-between">
-                    Profile
-                  </a>
+                  <NavLink to={"/my-artifacts"}>My Artifacts</NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/liked-artifacts"}>Liked Artifacts</NavLink>
                 </li>
                 <li>
                   <a onClick={logOutHandle}>Logout</a>
                 </li>
               </ul>
             </div>
-            
-            :
+          ) : (
             <>
-              <NavLink className='btn mr-4' to={"/login"}>Login</NavLink>
-              <NavLink className='btn' to={"/register"}>Register</NavLink>
+              <NavLink className="btn mr-4" to={"/login"}>
+                Login
+              </NavLink>
+              <NavLink className="btn" to={"/register"}>
+                Register
+              </NavLink>
             </>
-          }
+          )}
         </div>
       </div>
     </div>
