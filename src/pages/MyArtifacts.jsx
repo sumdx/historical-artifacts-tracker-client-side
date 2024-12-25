@@ -16,14 +16,14 @@ const MyArtifacts = () => {
         .then(res =>{
             updateMyArtifact(res.data)
         })
-    },[])
+    },[myArtifact])
 
     return (
         <div className='container mx-auto'>
             <div className='grid sm:grid-cols-1 md:grid-cols-3 gap-6 justify-center'>
             {
                 myArtifact.map((data)=>{
-                    return <MyArtifactCard data={data}></MyArtifactCard>
+                    return <MyArtifactCard data={data} myArtifact ={myArtifact} updateMyArtifact={updateMyArtifact}></MyArtifactCard>
                 })
             }
             </div>

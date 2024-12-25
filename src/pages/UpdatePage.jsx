@@ -24,7 +24,7 @@ const UpdatePage = () => {
     e.preventDefault();
     const initialData = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.put(`http://localhost:3000/update/${id}`, initialData)
+    axios.put(`http://localhost:3000/artifacts/${id}`, initialData)
     .then(res =>{
         Swal.fire({
             title: 'Success!',
