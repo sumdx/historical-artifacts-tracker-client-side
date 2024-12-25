@@ -9,7 +9,8 @@ const LikedArtifacts = () => {
     useEffect(()=>{
 
         axios.get('http://localhost:3000/liked-artifacts',{
-            params : {email : user.email}
+            params : {email : user.email},
+            withCredentials:true
         })
         .then(res=>{
             updateLikedArtifact(res.data);

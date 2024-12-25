@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import AddArt from "./../assets/Images/addArt.jpg"
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
@@ -9,6 +9,7 @@ const UpdatePage = () => {
     const { user } = useContext(AuthContext);
     const {id} = useParams();
     const [artifactData,artifactDataUpdate] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(()=>{
         axios
@@ -23,16 +24,18 @@ const UpdatePage = () => {
   const addArtifactHandle = (e) => {
     e.preventDefault();
     const initialData = Object.fromEntries(new FormData(e.target).entries());
-
+    console.log(initialData)
     axios.put(`http://localhost:3000/artifacts/${id}`, initialData)
     .then(res =>{
+      console.log(res)
         Swal.fire({
             title: 'Success!',
             text: 'Artifact Information Updated Successfully',
             icon: 'success',
             confirmButtonText: 'Okay'
           })
-         // e.target.reset();
+        
+        //  e.target.reset();
     })
     .catch(err =>{
         Swal.fire({
@@ -42,6 +45,7 @@ const UpdatePage = () => {
             confirmButtonText: 'Okay'
           })
     })
+    navigate('/my-artifacts');
 
   };
 
@@ -84,10 +88,10 @@ const UpdatePage = () => {
                         <option value="" disabled>
                           Type of Artifact
                         </option>
-                        <option>Tools</option>
-                        <option>Weapons</option>
-                        <option>Documents</option>
-                        <option>Writings</option>
+                        <option value={"Tools"}>Tools</option>
+                        <option value={"Weapons"}>Weapons</option>
+                        <option value={"Documents"}>Documents</option>
+                        <option value={"Writings"}>Writings</option>
                       </select>
                     </div>
                     <div>

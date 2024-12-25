@@ -4,9 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "./../assets/Images/login.svg";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Login = () => {
-  const { signInUser, user ,signInUserWithGoogle} = useContext(AuthContext);
+  const { signInUser, user, signInUserWithGoogle } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -22,6 +23,7 @@ const Login = () => {
     console.log(email, password);
     signInUser(email, password)
       .then((result) => {
+        const user = { email: result.user.email };
         navigate(from, { replace: true });
       })
       .catch((err) => {
@@ -34,18 +36,18 @@ const Login = () => {
   };
 
   const googleSignInHandle = () => {
-
     signInUserWithGoogle()
-    .then((result) =>{
-      navigate(from, { replace: true });
-    })
-    .catch((err) => {
-      Swal.fire({
-        title: "Error!",
-        text: "Something Went Wrong, Try Again. Please Check Email and Password",
-        icon: "error",
+      .then((result) => {
+        const user = { email: result.user.email };
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Error!",
+          text: "Something Went Wrong, Try Again. Please Check Email and Password",
+          icon: "error",
+        });
       });
-    });
   };
 
   return (

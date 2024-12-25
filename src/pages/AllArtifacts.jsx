@@ -7,7 +7,6 @@ const AllArtifacts = () => {
 
   useEffect(() => {
     axios.get("http://localhost:3000/artifacts").then((res) => {
-      console.log(res.data);
       updateArtifactsData(res.data);
     });
   }, []);
