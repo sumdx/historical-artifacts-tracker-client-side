@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Logo from "./../assets/Images/Logo.svg"
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -31,7 +32,7 @@ const NavBar = () => {
   );
   return (
     <div className="container mx-auto">
-      <div className="navbar bg-base-100">
+      <div className="navbar  bg-red-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,7 +58,11 @@ const NavBar = () => {
               {menuItems}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Historical Artifacts Tracker</a>
+          <div className="flex items-center">
+            <img src={Logo} className="h-10" alt="" />
+          <a  className="hidden sm:block text-2xl font-bold ml-6 ">Historical Artifacts Tracker</a>
+          </div>
+          
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menuItems}</ul>

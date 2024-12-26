@@ -79,6 +79,7 @@ const Register = () => {
               <label className="input input-bordered flex items-center gap-2 mb-4">
                 <FaCircleUser className="h-4 w-4 opacity-70" />
                 <input
+                required
                   name="name"
                   type="text"
                   className="grow"
@@ -88,6 +89,7 @@ const Register = () => {
               <label className="input input-bordered flex items-center gap-2 mb-4">
                 <AiFillPicture className="h-4 w-4 opacity-70" />
                 <input
+                required
                   name="photoUrl"
                   type="text"
                   className="grow"
@@ -105,6 +107,7 @@ const Register = () => {
                   <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                 </svg>
                 <input
+                required
                   name="email"
                   type="text"
                   className="grow"
@@ -125,6 +128,7 @@ const Register = () => {
                   />
                 </svg>
                 <input
+                required
                   type="password"
                   className="grow"
                   placeholder="password"
