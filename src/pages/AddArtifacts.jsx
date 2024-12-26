@@ -20,7 +20,10 @@ const AddArtifacts = () => {
     const finalData = {...initialData, userInfo, likedBy};
     console.log(finalData)
 
-    axios.post('http://localhost:3000/artifact', finalData)
+    axios.post('http://localhost:3000/artifact', finalData,{
+      params : {email : user.email},
+      withCredentials :true,
+    })
     .then(res =>{
         Swal.fire({
             title: 'Success!',
