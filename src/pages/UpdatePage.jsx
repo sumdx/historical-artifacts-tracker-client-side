@@ -4,12 +4,14 @@ import AddArt from "./../assets/Images/addArt.jpg"
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../providers/useAxiosSecure';
 
 const UpdatePage = () => {
     const { user } = useContext(AuthContext);
     const {id} = useParams();
     const [artifactData,artifactDataUpdate] = useState([]);
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
     
     useEffect(()=>{
         axios
@@ -25,7 +27,9 @@ const UpdatePage = () => {
     e.preventDefault();
     const initialData = Object.fromEntries(new FormData(e.target).entries());
     console.log(initialData)
-    axios.put(`http://localhost:3000/artifacts/${id}`, initialData)
+    axiosSecure.put(`http://localhost:3000/artifacts/${id}`, initialData,{
+      withCredentials :true
+    })
     .then(res =>{
       console.log(res)
         Swal.fire({

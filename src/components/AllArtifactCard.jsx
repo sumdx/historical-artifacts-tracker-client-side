@@ -19,7 +19,7 @@ const AllArtifactCard = ({ data }) => {
             <p className="font-medium">{data.historicalContext}</p>
             <p className="">Type : {data.type}</p>
             <div className="card-actions justify-start">
-              <Link to={`/artifacts/${data._id}`} className="btn btn-accent">View Details</Link>
+              <Link to={`/artifacts/${data._id}`} className="btn btn-primary ">View Details</Link>
             </div>
           </div>
         </div>

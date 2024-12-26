@@ -53,7 +53,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow "
             >
               {menuItems}
             </ul>
@@ -65,12 +65,12 @@ const NavBar = () => {
           
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{menuItems}</ul>
+          <ul className="menu menu-horizontal px-1 space-x-4">{menuItems}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
             <div
-              className="hover:tooltip hover:tooltip-right dropdown dropdown-end"
+              className="hover:tooltip hover:tooltip-left dropdown dropdown-end"
               data-tip={user?.displayName}
             >
               <div

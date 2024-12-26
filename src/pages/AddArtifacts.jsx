@@ -3,9 +3,11 @@ import AddArt from "./../assets/Images/addArt.jpg";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../providers/useAxiosSecure";
 
 const AddArtifacts = () => {
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
 
   const addArtifactHandle = (e) => {
     e.preventDefault();
@@ -20,7 +22,7 @@ const AddArtifacts = () => {
     const finalData = {...initialData, userInfo};
     console.log(finalData)
 
-    axios.post('http://localhost:3000/artifact', finalData,{
+    axiosSecure.post('http://localhost:3000/artifact', finalData,{
       params : {email : user.email},
       withCredentials :true,
     })

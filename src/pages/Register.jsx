@@ -57,7 +57,21 @@ const Register = () => {
     })
   };
 
-  const googleSignInHandle = () => {};
+  const googleSignInHandle = () => {
+
+    signInUserWithGoogle()
+          .then((result) => {
+            const user = { email: result.user.email };
+            navigate(from, { replace: true });
+          })
+          .catch((err) => {
+            Swal.fire({
+              title: "Error!",
+              text: "Something Went Wrong, Try Again. Please Check Email and Password",
+              icon: "error",
+            });
+          });
+  };
   return (
     <div className="container mx-auto">
       {/* Login Form */}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const LikedArtifactCard = ({data}) => {
     return (
@@ -18,13 +19,7 @@ const LikedArtifactCard = ({data}) => {
                       </h2>
                       <p>{data.historicalContext}</p>
                       <div className="card-actions justify-start mt-4">
-                        <div>
-                            
-                        </div>
-                        <div>
-                            
-                        </div>
-                        
+                        <Link to={`/artifacts/${data._id}`} className="btn btn-primary ">View Details</Link>
                       </div>
                     </div>
                   </div>

@@ -53,7 +53,7 @@ const MyArtifactCard = ({ data , myArtifact, updateMyArtifact}) => {
           <img
             src={data.artifactImgUrl}
             alt="Shoes"
-            className="object-cover"
+            className="object-cover w-full h-full"
           />
         </figure>
         <div className="card-body">
