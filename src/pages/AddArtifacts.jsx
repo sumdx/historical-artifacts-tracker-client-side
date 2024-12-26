@@ -46,13 +46,13 @@ const AddArtifacts = () => {
 
   return (
     <div className="w-full relative bg-slate-50">
-      <div className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white absolute mx-auto container">
+      <div className="md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 rounded-lg bg-white  mx-auto container">
         <h1 className="font-bold text-4xl text-center mt-4">
           Add Your Collection
         </h1>
         <div className="mx-auto mt-10 flex justify-center">
           <form onSubmit={addArtifactHandle} className=" " action="">
-            <div className="flex gap-6">
+            <div className="flex sm:flex-col md:flex-row gap-6">
               <label className="form-control w-full max-w-xs">
                 <input
                   type="text"
@@ -94,7 +94,7 @@ const AddArtifacts = () => {
               ></textarea>
             </div>
             {/* Created and dicover date */}
-            <div className="md:flex gap-6 mt-6 ">
+            <div className="flex sm:flex-col md:flex-row gap-6  mt-6">
               <label className="form-control w-full max-w-xs">
                 <input
                   name="createdAt"
@@ -113,7 +113,7 @@ const AddArtifacts = () => {
               </label>
             </div>
             {/* Created and dicover date */}
-            <div className="md:flex gap-6 mt-6 ">
+            <div className="flex sm:flex-col md:flex-row gap-6 mt-6">
               <label className="form-control w-full max-w-xs">
                 <input
                   name="discoveredBy"
@@ -161,7 +161,7 @@ const AddArtifacts = () => {
           </form>
         </div>
       </div>
-      <img src={AddArt} className="w-full h-full object-cover" alt="" />
+      <img src={AddArt} className="hidden md:block w-full h-full object-cover" alt="" />
     </div>
   );
 };

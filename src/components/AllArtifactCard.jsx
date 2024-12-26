@@ -6,10 +6,10 @@ const AllArtifactCard = ({ data }) => {
     <div>
       <div className="h-full">
         <div className=" h-full card bg-base-100 shadow-xl">
-          <figure>
+          <figure className="h-64">
             <img
               src={data.artifactImgUrl}
-              alt="Shoes"
+              className="object-cover h-full w-full"
             />
           </figure>
           <div className="card-body">
