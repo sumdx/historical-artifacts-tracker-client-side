@@ -21,7 +21,7 @@ const Home = () => {
   const [feturedData, feturedDataUpdate] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/featured-items").then((res) => {
+    axios.get("https://b10a11-server-side-sumdx.vercel.app/featured-items").then((res) => {
       feturedDataUpdate(res.data);
     });
   }, []);

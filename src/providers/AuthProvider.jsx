@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const user = { email: currentUser?.email };
         axios
-          .post("http://localhost:3000/jwt", user, {
+          .post("https://b10a11-server-side-sumdx.vercel.app/jwt", user, {
             withCredentials: true,
           })
           .then((res) => {
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("http://localhost:3000/logout", user, {
+          .post("https://b10a11-server-side-sumdx.vercel.app/logout", user, {
             withCredentials: true,
           })
           .then((res) => {

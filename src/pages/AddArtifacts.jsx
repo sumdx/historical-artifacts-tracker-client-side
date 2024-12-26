@@ -23,7 +23,7 @@ const AddArtifacts = () => {
     const finalData = {...initialData, userInfo};
     
 
-    axiosSecure.post('http://localhost:3000/artifact', finalData,{
+    axiosSecure.post('https://b10a11-server-side-sumdx.vercel.app/artifact', finalData,{
       params : {email : user.email},
       withCredentials :true,
     })

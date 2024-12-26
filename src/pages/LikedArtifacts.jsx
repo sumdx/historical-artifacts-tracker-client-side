@@ -9,7 +9,7 @@ const LikedArtifacts = () => {
   const [likedArtifact, updateLikedArtifact] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/liked-artifacts", {
+      .get("https://b10a11-server-side-sumdx.vercel.app/liked-artifacts", {
         params: { email: user.email },
         withCredentials: true,
       })

@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { AuthContext } from './AuthProvider';
 
 const axiosInstance = axios.create({
-    baseURL : "http://localhost:3000",
+    baseURL : "https://b10a11-server-side-sumdx.vercel.app",
     withCredentials : true,
 })
 

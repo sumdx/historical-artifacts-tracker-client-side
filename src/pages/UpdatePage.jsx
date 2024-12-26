@@ -15,7 +15,7 @@ const UpdatePage = () => {
     
     useEffect(()=>{
         axios
-      .get(`http://localhost:3000/artifacts/${id}`)
+      .get(`https://b10a11-server-side-sumdx.vercel.app/artifacts/${id}`)
       .then((res) => {
         artifactDataUpdate(res.data);
        
@@ -27,7 +27,7 @@ const UpdatePage = () => {
     e.preventDefault();
     const initialData = Object.fromEntries(new FormData(e.target).entries());
   
-    axiosSecure.put(`http://localhost:3000/artifacts/${id}`, initialData,{
+    axiosSecure.put(`https://b10a11-server-side-sumdx.vercel.app/artifacts/${id}`, initialData,{
       withCredentials :true
     })
     .then(res =>{

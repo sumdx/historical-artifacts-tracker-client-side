@@ -15,7 +15,7 @@ const ArtifactDetails = () => {
 
   useEffect(() => {
     axiosSecure
-      .get(`http://localhost:3000/artifacts/${id}`,{
+      .get(`https://b10a11-server-side-sumdx.vercel.app/artifacts/${id}`,{
         withCredentials :true,
       })
       .then((res) => {
@@ -43,7 +43,7 @@ const ArtifactDetails = () => {
     likeDataUpdate(newLikeData);
 
     axios
-      .put(`http://localhost:3000/artifacts/${id}/like`, newLikeData)
+      .put(`https://b10a11-server-side-sumdx.vercel.app/artifacts/${id}/like`, newLikeData)
       .then((res) => {})
       .catch((err) => {});
   };

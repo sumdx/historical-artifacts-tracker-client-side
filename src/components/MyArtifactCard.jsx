@@ -22,7 +22,7 @@ const MyArtifactCard = ({ data , myArtifact, updateMyArtifact}) => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        axios.delete(`http://localhost:3000/artifacts/${id}`)
+        axios.delete(`https://b10a11-server-side-sumdx.vercel.app/artifacts/${id}`)
         .then(res =>{
           const newArtifact = myArtifact.filter(artifact =>{artifact._id !== id})
           updateMyArtifact(newArtifact);
