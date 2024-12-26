@@ -4,20 +4,24 @@ import { BiLike, BiSolidLike } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../providers/useAxiosSecure";
 
 const ArtifactDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [artifactData, artifactDataUpdate] = useState([]);
   const [likeData, likeDataUpdate] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/artifacts/${id}`)
+    axiosSecure
+      .get(`http://localhost:3000/artifacts/${id}`,{
+        withCredentials :true,
+      })
       .then((res) => {
         artifactDataUpdate(res.data);
         likeDataUpdate(res.data.userInfo.likedBy);
-        console.log("Printed");
+        
       })
       .catch((err) => {});
   }, []);

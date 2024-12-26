@@ -55,10 +55,10 @@ const AuthProvider = ({ children }) => {
             withCredentials: true,
           })
           .then((res) => {
-            console.log(res);
+            
           })
           .catch((err) => {
-            console.log(err);
+            
           });
       } else {
         axios
@@ -66,10 +66,10 @@ const AuthProvider = ({ children }) => {
             withCredentials: true,
           })
           .then((res) => {
-            console.log(res);
+            
           })
           .catch((err) => {
-            console.log(err);
+            
           });
       }
     });

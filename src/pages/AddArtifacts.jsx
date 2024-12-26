@@ -20,7 +20,7 @@ const AddArtifacts = () => {
             likedBy
         }
     const finalData = {...initialData, userInfo};
-    console.log(finalData)
+    
 
     axiosSecure.post('http://localhost:3000/artifact', finalData,{
       params : {email : user.email},

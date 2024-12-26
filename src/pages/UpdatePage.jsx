@@ -18,7 +18,7 @@ const UpdatePage = () => {
       .get(`http://localhost:3000/artifacts/${id}`)
       .then((res) => {
         artifactDataUpdate(res.data);
-        console.log("Printed")
+       
       })
       .catch((err) => {});
     },[])
@@ -26,12 +26,12 @@ const UpdatePage = () => {
   const addArtifactHandle = (e) => {
     e.preventDefault();
     const initialData = Object.fromEntries(new FormData(e.target).entries());
-    console.log(initialData)
+  
     axiosSecure.put(`http://localhost:3000/artifacts/${id}`, initialData,{
       withCredentials :true
     })
     .then(res =>{
-      console.log(res)
+      
         Swal.fire({
             title: 'Success!',
             text: 'Artifact Information Updated Successfully',
