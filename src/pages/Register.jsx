@@ -10,7 +10,7 @@ import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 
 const Register = () => {
-  const { signUpUser, signInUserWithGoogle } = useContext(AuthContext);
+  const { signUpUser, signInUserWithGoogle,signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
@@ -33,7 +33,6 @@ const Register = () => {
 
     signUpUser(email, password)
     .then((result) => {
-        
         const profile ={
           displayName : name,
           photoURL : photoUrl,
@@ -41,7 +40,16 @@ const Register = () => {
 
         updateProfile(auth.currentUser,profile)
         .then((resut)=>{
-            navigate("/login");
+          signOutUser()
+          .then(() => {
+            Swal.fire({
+              title: "Registration Successful!",
+              text: "Please log in to continue.",
+              icon: "success",
+            }).then(() => {
+              navigate("/login"); // Redirect to login page
+            });
+          })
         })
         .catch((err) => {
 
