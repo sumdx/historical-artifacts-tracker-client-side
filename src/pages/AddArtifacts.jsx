@@ -17,7 +17,7 @@ const AddArtifacts = () => {
             userName : user.displayName,
             likedBy
         }
-    const finalData = {...initialData, userInfo, likedBy};
+    const finalData = {...initialData, userInfo};
     console.log(finalData)
 
     axios.post('http://localhost:3000/artifact', finalData,{
@@ -31,7 +31,7 @@ const AddArtifacts = () => {
             icon: 'success',
             confirmButtonText: 'Okay'
           })
-         // e.target.reset();
+          e.target.reset();
     })
     .catch(err =>{
         Swal.fire({
@@ -94,7 +94,7 @@ const AddArtifacts = () => {
               ></textarea>
             </div>
             {/* Created and dicover date */}
-            <div className="flex gap-6 mt-6 ">
+            <div className="md:flex gap-6 mt-6 ">
               <label className="form-control w-full max-w-xs">
                 <input
                   name="createdAt"
@@ -113,7 +113,7 @@ const AddArtifacts = () => {
               </label>
             </div>
             {/* Created and dicover date */}
-            <div className="flex gap-6 mt-6 ">
+            <div className="md:flex gap-6 mt-6 ">
               <label className="form-control w-full max-w-xs">
                 <input
                   name="discoveredBy"

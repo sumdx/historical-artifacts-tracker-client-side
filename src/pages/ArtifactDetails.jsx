@@ -25,7 +25,7 @@ const ArtifactDetails = () => {
 
   const likeBtnHandle = () =>{
     let newLikeData = [];
-    if(likeData.includes(user.email)){
+    if(likeData?.includes(user.email)){
         
         newLikeData = likeData.filter(email => email!== user.email);
 
@@ -34,17 +34,20 @@ const ArtifactDetails = () => {
         newLikeData = [...likeData, user.email];
         Swal.fire({
             title: 'Added to Liked!',
-            text: 'Artifact Added to liked list Successfully',
+            text: 'Artifact Added to liked Successfully',
             icon: 'success',
             confirmButtonText: 'Okay'
         })
     }
-    console.log(newLikeData)
+
     likeDataUpdate(newLikeData)
 
     axios.put(`http://localhost:3000/artifacts/${id}/like`, newLikeData)
     .then(res =>{
         
+    })
+    .catch(err =>{
+
     })
   }
 
