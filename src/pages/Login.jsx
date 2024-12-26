@@ -5,6 +5,7 @@ import loginImg from "./../assets/Images/login.svg";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signInUser, user, signInUserWithGoogle } = useContext(AuthContext);
@@ -52,6 +53,9 @@ const Login = () => {
 
   return (
     <div className="container mx-auto">
+      <Helmet>
+              <title>Login</title>
+      </Helmet>
       {/* Login Form */}
       <div className="sm:flex flex-col md:flex-row justify-between my-20">
         <div className="bg-blue-600 w-1/2 text-white rounded-xl mr-10">

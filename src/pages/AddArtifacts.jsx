@@ -4,6 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../providers/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddArtifacts = () => {
   const { user } = useContext(AuthContext);
@@ -48,6 +49,9 @@ const AddArtifacts = () => {
 
   return (
     <div className="w-full relative bg-slate-50">
+      <Helmet>
+                    <title>Add Artifact</title>
+            </Helmet>
       <div className="md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 rounded-lg bg-white  mx-auto container">
         <h1 className="font-bold text-4xl text-center mt-4">
           Add Your Collection

@@ -4,6 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import ArtifactDetails from "./ArtifactDetails";
 import MyArtifactCard from "../components/MyArtifactCard";
 import useAxiosSecure from "../providers/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MyArtifacts = () => {
   const { user } = useContext(AuthContext);
@@ -20,6 +21,9 @@ const MyArtifacts = () => {
 
   return (
     <div className="container mx-auto">
+      <Helmet>
+                          <title>My Artifacts - Your Contributions</title>
+                  </Helmet>
       <div className="my-20 mx-auto text-center">
         <h1 className="text-4xl font-bold">Artifacts Added by You</h1>
         <h2 className="text-lg font-semibold mt-4" >Welcome to the Artifact Gallery!</h2>

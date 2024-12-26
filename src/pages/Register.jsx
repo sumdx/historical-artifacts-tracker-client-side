@@ -8,6 +8,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { signUpUser, signInUserWithGoogle,signOutUser } = useContext(AuthContext);
@@ -82,6 +83,9 @@ const Register = () => {
   };
   return (
     <div className="container mx-auto">
+      <Helmet>
+                    <title>Register</title>
+            </Helmet>
       {/* Login Form */}
       <div className="sm:flex flex-col md:flex-row justify-between my-20">
         <div className="bg-blue-600 w-1/2 text-white rounded-xl mr-10">

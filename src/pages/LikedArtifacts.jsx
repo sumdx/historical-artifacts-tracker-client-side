@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import LikedArtifactCard from "../components/LikedArtifactCard";
+import { Helmet } from "react-helmet-async";
 
 const LikedArtifacts = () => {
   const { user } = useContext(AuthContext);
@@ -19,6 +20,9 @@ const LikedArtifacts = () => {
 
   return (
     <div className="container mx-auto">
+      <Helmet>
+                                <title>Liked Artifacts - Your Favorites</title>
+                        </Helmet>
       <div className="my-20 mx-auto text-center">
         <h1 className="text-4xl font-bold">Your Favourite List</h1>
         <h2 className="text-lg font-semibold mt-4">

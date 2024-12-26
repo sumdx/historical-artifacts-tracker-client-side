@@ -2,13 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AllArtifactCard from "../components/AllArtifactCard";
 import useAxiosSecure from "../providers/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AllArtifacts = () => {
   const [artifactsData, updateArtifactsData] = useState([]);
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axiosSecure.get("http://localhost:3000/artifacts",{
+    axiosSecure.get("/artifacts",{
       withCredentials : true,
     }).then((res) => {
       updateArtifactsData(res.data);
@@ -21,14 +22,14 @@ const AllArtifacts = () => {
 
   if (search === "") {
   
-    axiosSecure.get("http://localhost:3000/artifacts", {
+    axiosSecure.get("/artifacts", {
       withCredentials: true,
     }).then((res) => {
       updateArtifactsData(res.data);
     });
   } else {
     
-    axiosSecure.get("http://localhost:3000/artifacts", {
+    axiosSecure.get("/artifacts", {
       withCredentials: true,
     }).then((res) => {
       const filteredData = res.data.filter((artifact) =>
@@ -41,6 +42,9 @@ const AllArtifacts = () => {
 
   return (
     <div>
+      <Helmet>
+                    <title>All Artifacts - A Journey Through History</title>
+            </Helmet>
       <div className="my-20 mx-auto text-center">
         <h1 className="text-4xl font-bold">Explore Historical Artifacts</h1>
         <h2 className="text-lg font-semibold mt-4" >Welcome to the Artifact Gallery!</h2>

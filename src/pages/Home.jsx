@@ -15,6 +15,7 @@ import gl4 from "./../assets/Images/gl4.jpg";
 import gl5 from "./../assets/Images/gl5.jpg";
 import gl6 from "./../assets/Images/gl6.jpg";
 import gl7 from "./../assets/Images/gl7.jpg";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [feturedData, feturedDataUpdate] = useState([]);
@@ -26,6 +27,9 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Home - Discover Amazing Artifacts</title>
+      </Helmet>
       <div>
         <div className="w-full rounded-2xl overflow-hidden">
           <Carousel
@@ -78,9 +82,9 @@ const Home = () => {
           </Carousel>
         </div>
       </div>
-      <div className="container flex mx-auto mt-12">
+      <div className="container  md:flex mx-auto mt-12">
         
-        <div className="w-1/2">
+        <div className="md:w-1/2 ">
           <div class="grid grid-cols-6 gap-4 p-4">
             <div class="col-span-4 row-span-2">
               <img
@@ -109,13 +113,13 @@ const Home = () => {
             
           </div>
         </div>
-        <div className="flex flex-col justify-between w-1/2">
+        <div className="flex flex-col justify-between md:w-1/2">
           <div className="flex flex-col items-end">
             <h1 className="text-right border border-primary inline-block px-4 mr-6 py-2 mb-4 rounded-full bg-opacity-20">
             Unveiling History
             </h1>
             <h1 className="text-4xl text-right pr-6 mb-6 font-semibold">Discover the Essence of Artifacts</h1>
-            <p className="text-right pr-6 pl-20">Welcome to a world where every artifact tells a story! Our platform is dedicated to preserving and showcasing the treasures of human history, offering you a chance to explore the past like never before. From ancient tools to cultural relics, each piece in our collection connects you to a bygone era, sparking curiosity and admiration.</p>
+            <p className="text-right pr-6 pl-6">Welcome to a world where every artifact tells a story! Our platform is dedicated to preserving and showcasing the treasures of human history, offering you a chance to explore the past like never before.</p>
           </div>
           <div class="grid grid-cols-6 gap-4 p-4">
           <div class="col-span-3 row-span-2">
@@ -159,7 +163,7 @@ const Home = () => {
           </h1>
           <h1 className="text-4xl  mb-6 font-semibold">Featured Artifacts</h1>
         </div>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
           {feturedData.map((data) => (
             <FeaturedDataCard data={data}></FeaturedDataCard>
           ))}
@@ -175,8 +179,8 @@ const Home = () => {
       </div>
       <div></div>
 
-      <div className="container mx-auto flex my-12">
-        <div className="w-1/2">
+      <div className="container mx-auto md:flex my-12">
+        <div className="sm:w-full md:w-1/2">
           <div>
             <h1 className="border border-primary inline-block px-4 py-2 mb-4 rounded-full bg-primary bg-opacity-20">
               Faq
@@ -186,7 +190,7 @@ const Home = () => {
             </h1>
           </div>
         </div>
-        <div className="w-1/2 space-y-4">
+        <div className="md:w-1/2 space-y-4">
           <div className="collapse bg-base-200">
             <input type="radio" name="my-accordion-1" defaultChecked />
             <div className="collapse-title text-xl font-medium">
