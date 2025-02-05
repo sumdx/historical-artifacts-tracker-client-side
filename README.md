@@ -4,7 +4,7 @@
 
 **Live URL**: [Historical Artifacts Tracker Webite](https://aistorical-artifacts-tracker.web.app/)
 
-## Installing the Fit4Souls
+## Installing the website
 
 To set up the Luxe Studio Website locally, follow these steps:
 
