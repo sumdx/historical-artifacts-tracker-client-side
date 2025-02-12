@@ -16,6 +16,7 @@ import gl5 from "./../assets/Images/gl5.jpg";
 import gl6 from "./../assets/Images/gl6.jpg";
 import gl7 from "./../assets/Images/gl7.jpg";
 import { Helmet } from "react-helmet-async";
+import About from "./About";
 
 const Home = () => {
   const [feturedData, feturedDataUpdate] = useState([]);
@@ -156,6 +157,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <About></About>
       <div className="container mx-auto">
         <div className="mt-12">
           <h1 className="border border-primary inline-block px-4 py-2 mb-4 rounded-full bg-primary bg-opacity-20">
