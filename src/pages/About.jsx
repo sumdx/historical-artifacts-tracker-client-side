@@ -13,11 +13,7 @@ const About = () => {
           All about Historical Artifacts Tracker
         </h1>
         <p className="font-light mt-4 w-1/2 mx-auto">
-          Step into the past and explore a diverse collection of historical
-          artifacts from around the world. This page showcases artifacts that
-          tell fascinating stories of different eras, cultures, and
-          civilizations. From ancient tools to priceless documents, each
-          artifact in this collection has a unique history and significance.
+          All artifacts is a collection of a ancient artifacts. You can add your collection here and also like the artifacts you love. You will get the details information about the artifacts in the artifacts details page.
         </p>
       </div>
 
