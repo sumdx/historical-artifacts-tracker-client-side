@@ -58,10 +58,10 @@ const Login = () => {
       </Helmet>
       {/* Login Form */}
       <div className="sm:flex flex-col md:flex-row justify-between my-20">
-        <div className="bg-blue-600 w-1/2 text-white rounded-xl mr-10">
-          <img src={loginImg} className="w-1/2 mx-auto my-auto h-full" alt="" />
+        <div className="bg-blue-600 md:w-1/2 mx-auto text-white rounded-xl mr-10">
+          <img src={loginImg} className="md:w-1/2 mx-auto my-auto h-full" alt="" />
         </div>
-        <div className="w-1/2 my-10">
+        <div className="md:w-1/2 my-10">
           <div className="text-blue-600 font-bold text-4xl text-center mb-10">
             <h1>Welcome Back</h1>
           </div>

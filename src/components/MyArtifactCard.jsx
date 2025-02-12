@@ -2,10 +2,12 @@ import axios from "axios";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../providers/useAxiosSecure";
 
 const MyArtifactCard = ({ data , myArtifact, updateMyArtifact}) => {
   
   const id = data._id;
+  const axiosSecure = useAxiosSecure();
 
   const updateHandle = () =>{
     useNavigate()
@@ -22,7 +24,9 @@ const MyArtifactCard = ({ data , myArtifact, updateMyArtifact}) => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        axios.delete(`https://b10a11-server-side-sumdx.vercel.app/artifacts/${id}`)
+        axiosSecure.delete(`https://b10a11-server-side-sumdx.vercel.app/artifacts/${id}`,{
+          withCredentials :true,
+        })
         .then(res =>{
           const newArtifact = myArtifact.filter(artifact =>{artifact._id !== id})
           updateMyArtifact(newArtifact);
@@ -52,7 +56,7 @@ const MyArtifactCard = ({ data , myArtifact, updateMyArtifact}) => {
         <figure className="h-72">
           <img
             src={data.artifactImgUrl}
-            alt="Shoes"
+            alt="Artifact_Img"
             className="object-cover w-full h-full"
           />
         </figure>

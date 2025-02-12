@@ -19,7 +19,7 @@ const LikedArtifacts = () => {
   }, []);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mb-20">
       <Helmet>
                                 <title>Liked Artifacts - Your Favorites</title>
                         </Helmet>

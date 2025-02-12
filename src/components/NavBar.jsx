@@ -16,12 +16,18 @@ const NavBar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
+        <NavLink to={"/about"}>About</NavLink>
+      </li>
+      <li>
             <NavLink to={"/all-artifacts"}>All Artifacts</NavLink>
       </li>
       {user && (
         <>
           <li>
             <NavLink to={"/add-artifact"}>Add Artifact</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-artifacts"}>My Artifacts</NavLink>
           </li>
           
         </>
@@ -56,13 +62,16 @@ const NavBar = () => {
               {menuItems}
             </ul>
           </div>
+          <NavLink to={"/"}>
           <div className="flex items-center">
             <img src={Logo} className="h-10" alt="" />
-          <a  className="hidden sm:block text-2xl font-bold ml-6 ">Historical Artifacts Tracker</a>
+            <a  className="hidden sm:block text-2xl font-bold ml-6 ">Historical Artifacts</a>
           </div>
+          </NavLink >
+          
           
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center pl- hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-4">{menuItems}</ul>
         </div>
         <div className="navbar-end">

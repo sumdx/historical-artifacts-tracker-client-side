@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 const AllArtifacts = () => {
   const [artifactsData, updateArtifactsData] = useState([]);
   const axiosSecure = useAxiosSecure();
+  const [sorted, setSorted] = useState(false);
 
   useEffect(() => {
     axiosSecure.get("/artifacts",{
@@ -15,6 +16,7 @@ const AllArtifacts = () => {
       updateArtifactsData(res.data);
     });
   }, []);
+
 
   const searchHandle = (e) => {
     const search = e.target.value.toLowerCase();
@@ -40,6 +42,21 @@ const AllArtifacts = () => {
   }
   };
 
+  const handleSort = () =>{
+    if(sorted){
+      const sortedData = [...artifactsData].sort((a,b) =>b.artifactName.localeCompare(a.artifactName))
+      updateArtifactsData(sortedData);
+      setSorted(!sorted)
+    }else{
+      const sortedData = [...artifactsData].sort((a,b) =>a.artifactName.localeCompare(b.artifactName))
+      updateArtifactsData(sortedData);
+      setSorted(!sorted)
+    }
+    
+    
+    
+  }
+
   return (
     <div>
       <Helmet>
@@ -51,7 +68,7 @@ const AllArtifacts = () => {
         <p className="font-light mt-4 w-1/2 mx-auto">Step into the past and explore a diverse collection of historical artifacts from around the world. This page showcases artifacts that tell fascinating stories of different eras, cultures, and civilizations. From ancient tools to priceless documents, each artifact in this collection has a unique history and significance.</p>
       </div>
       <div>
-      <div className="container mx-auto w-1/2 mb-12">
+      <div className="container mx-auto w-1/2 mb-12 flex justify-center gap-6">
         <label className="input input-bordered flex items-center gap-2">
           <input
             name="search"
@@ -73,6 +90,12 @@ const AllArtifacts = () => {
             />
           </svg>
         </label>
+        <div>
+          {
+
+          }
+           <h1 className="btn" onClick={handleSort}>Sort by Name</h1>
+        </div>
       </div>
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto mb-20">
