@@ -4,6 +4,39 @@
 
 **Live URL**: [Historical Artifacts Tracker Webite](https://aistorical-artifacts-tracker.web.app/)
 
+## Installing the website
+
+To set up the Luxe Studio Website locally, follow these steps:
+
+### Clone the Repository:
+
+```bash
+git clone https://github.com/sumdx/historical-artifacts-tracker-client-side.git
+cd fit4souls-client-side
+```
+
+### Install Dependencies:
+
+```bash
+npm install
+```
+
+### Start the Development Server:
+
+```bash
+npm run dev
+```
+
+### Open in Browser:
+
+Navigate to:
+
+```
+http://localhost:5173
+```
+
+---
+
 ## Key Features
 
 - **User Interface**: A responsive and interactive frontend for tracking historical artifacts.
@@ -39,4 +72,20 @@
 - **sweetalert2**: For better, customizable pop-up alerts.
 - **tailwindcss**: A utility-first CSS framework for styling the application.
 - **daisyui**: TailwindCSS component library to speed up UI development.
+
+  
+## Dependencies  
+List the key dependencies used in the project:  
+```json
+"dependencies": {
+    "axios": "^1.7.9",
+    "firebase": "^11.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.4.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.28.1",
+    "sweetalert2": "^11.15.3"
+  },
   
