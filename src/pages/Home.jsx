@@ -7,7 +7,7 @@ import cover3 from "./../assets/Images/cover3.jpg";
 import cover4 from "./../assets/Images/cover4.jpg";
 import axios from "axios";
 import FeaturedDataCard from "../components/FeaturedDataCard";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import gl1 from "./../assets/Images/gl1.jpg";
 import gl2 from "./../assets/Images/gl2.jpg";
 import gl3 from "./../assets/Images/gl3.jpg";
@@ -49,6 +49,10 @@ const Home = () => {
                   Welcome to <br />
                   Historical Artifact Tracker
                 </h1>
+                <NavLink to={"/all-artifacts"}>
+                <button className="btn mt-6">Check Artifacts</button>
+                </NavLink>
+               
               </div>
             </div>
             <div className="w-full h-[400px] ">
@@ -60,6 +64,10 @@ const Home = () => {
                   <br />
                   artifacts here
                 </h1>
+                <NavLink to={"/all-artifacts"}>
+                <button className="btn mt-6">View Gallery</button>
+                </NavLink>
+               
               </div>
             </div>
             <div className="w-full h-[400px] ">
@@ -69,6 +77,10 @@ const Home = () => {
                 <h1 className=" shadow-xl shadow-black text-4xl text-white top-1/2">
                   Easy to Add, Easy to Track
                 </h1>
+                <NavLink to={"/all-artifacts"}>
+                <button className="btn mt-6">All Artifacts</button>
+                </NavLink>
+               
               </div>
             </div>
             <div className="w-full h-[400px] ">
@@ -78,6 +90,10 @@ const Home = () => {
                 <h1 className="shadow-xl shadow-black text-4xl text-white top-1/2">
                   Artifact Tracker - All your Collection
                 </h1>
+                <NavLink to={"/all-artifacts"}>
+                <button className="btn mt-6">Check Artifacts</button>
+                </NavLink>
+               
               </div>
             </div>
           </Carousel>
