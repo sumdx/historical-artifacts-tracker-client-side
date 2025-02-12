@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Logo from "./../assets/Images/Logo.svg"
+import "./Navbar.css"
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -62,12 +63,12 @@ const NavBar = () => {
               {menuItems}
             </ul>
           </div>
-          <NavLink to={"/"}>
+          <Link to={"/"}>
           <div className="flex items-center">
             <img src={Logo} className="h-10" alt="" />
             <a  className="hidden sm:block text-2xl font-bold ml-6 ">Historical Artifacts</a>
           </div>
-          </NavLink >
+          </Link >
           
           
         </div>
