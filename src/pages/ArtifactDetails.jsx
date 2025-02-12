@@ -55,10 +55,10 @@ const ArtifactDetails = () => {
           <h1 className="text-4xl font-bold">Details of {artifactData.artifactName} Artifact</h1>
         </div>
         <div className="card lg:card-side bg-base-100 shadow-xl  justify-between mb-20">
-          <figure className="lg:w-3/4">
+          <figure className=" lg:w-3/4">
             <img src={artifactData.artifactImgUrl} alt="Movie" className="h-full w-full object-cover" />
           </figure>
-          <div className="card-body ">
+          <div className="card-body lg:w-3/4 ">
             <h2 className="card-title text-4xl mb-4">{artifactData.artifactName}</h2>
             <p className="badge badge-primary p-2">
               Type : {artifactData.type}
